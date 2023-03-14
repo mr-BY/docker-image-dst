@@ -5,17 +5,16 @@ FROM ubuntu:latest
 RUN dpkg --add-architecture i386 && \
     apt update && \
     apt install -y wget libcurl3-gnutls libstdc++6:i386 libgcc1:i386 libcurl4-gnutls-dev:i386 && \
-	apt autoremove -y && \
-	apt clean -y && \
-	rm -rf /var/lib/apt/lists/*
+    apt autoremove -y && \
+    apt clean -y && \
+    rm -rf /var/lib/apt/lists/*
 
 # Install Don't Starve Together
 RUN mkdir -p /steamcmd && \
     cd /steamcmd && \
     wget "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" && \
-	tar -xvzf steamcmd_linux.tar.gz && \
-	rm -f steamcmd_linux.tar.gz && \
-	./steamcmd.sh +force_install_dir /dst +login anonymous +app_update 343050 validate +quit
+    tar -xvzf steamcmd_linux.tar.gz && \
+    rm -f steamcmd_linux.tar.gz
 
 # Copy server configuration files
 COPY MyDediServer /root/.klei/DoNotStarveTogether/MyDediServer
