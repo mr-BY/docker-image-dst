@@ -1,6 +1,11 @@
 # Set base image
 FROM ubuntu:latest
 
+LABEL maintainer="Jianrry <i@jianrry.com>"
+LABEL version="1.0"
+LABEL releasedate="2023-03-29"
+LABEL website="https://blog.jianrry.com"
+
 # Install necessary dependencies
 RUN dpkg --add-architecture i386 && \
     apt update && \
