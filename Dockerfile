@@ -30,13 +30,13 @@ RUN mkdir -p $steamcmd_install_dir && \
 # Copy server configuration files
 COPY MyDediServer $dst_save_dir
 
-# Copy entrypoint script
-COPY entrypoint.sh /usr/local/bin/
-RUN chmod +x /usr/local/bin/entrypoint.sh
+# Copy start script
+COPY dst_start.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/dst_start.sh
 
 # Expose server port
 EXPOSE 10998-11004/udp
 
 # Start the server
-ENTRYPOINT ["entrypoint.sh"]
+CMD ["dst_start.sh"]
 
