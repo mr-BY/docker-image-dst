@@ -28,7 +28,7 @@ RUN mkdir -p $steamcmd_install_dir && \
     rm -f steamcmd_linux.tar.gz
 
 # Copy server configuration files
-COPY MyDediServer/ $dst_save_dir/
+COPY MyDediServer/ $dst_save_dir
 
 # Copy entrypoint script
 COPY entrypoint.sh /usr/local/bin/
