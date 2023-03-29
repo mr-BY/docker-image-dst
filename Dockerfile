@@ -15,7 +15,7 @@ ENV steamcmd_install_dir=/steamcmd \
 # Install necessary dependencies
 RUN dpkg --add-architecture i386 && \
     apt update && \
-    apt install -y wget libcurl3-gnutls libstdc++6:i386 libgcc1:i386 libcurl4-gnutls-dev:i386 && \
+    apt install -y libstdc++6:i386 libgcc1:i386 libcurl4-gnutls-dev:i386 wget libcurl3-gnutls && \
     apt autoremove -y && \
     apt clean -y && \
     rm -rf /var/lib/apt/lists/*
