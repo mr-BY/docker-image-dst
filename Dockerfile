@@ -10,7 +10,7 @@ LABEL website="https://blog.jianrry.com"
 # Set environment variable
 ENV steamcmd_install_dir=/steamcmd \
     dst_install_dir=/dst \
-    dst_save_dir=/root/.klei/DoNotStarveTogether
+    dst_save_dir=/root/.klei/DoNotStarveTogether/MyDediServer
 
 # Install necessary dependencies
 RUN dpkg --add-architecture i386 && \
@@ -28,7 +28,7 @@ RUN mkdir -p $steamcmd_install_dir && \
     rm -f steamcmd_linux.tar.gz
 
 # Copy server configuration files
-COPY MyDediServer/ $dst_save_dir
+COPY MyDediServer $dst_save_dir
 
 # Copy entrypoint script
 COPY entrypoint.sh /usr/local/bin/
