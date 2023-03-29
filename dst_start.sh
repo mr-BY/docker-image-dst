@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# set environment variable
+steamcmd_install_dir=/steamcmd 
+dst_install_dir=/dst 
+
 # download and update Don't Starve Together
 dst_update(){
 
