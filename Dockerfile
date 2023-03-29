@@ -1,10 +1,16 @@
 # Set base image
 FROM ubuntu:latest
 
+# Set copyright information
 LABEL maintainer="Jianrry <i@jianrry.com>"
 LABEL version="1.0"
 LABEL releasedate="2023-03-29"
 LABEL website="https://blog.jianrry.com"
+
+# Set environment variable
+ENV steamcmd_install_dir=/steamcmd \
+    dst_install_dir=/dst \
+    dst_save_dir=/root/.klei/DoNotStarveTogether
 
 # Install necessary dependencies
 RUN dpkg --add-architecture i386 && \
@@ -15,14 +21,14 @@ RUN dpkg --add-architecture i386 && \
     rm -rf /var/lib/apt/lists/*
 
 # Install Don't Starve Together
-RUN mkdir -p /steamcmd && \
-    cd /steamcmd && \
+RUN mkdir -p $steamcmd_install_dir && \
+    cd $steamcmd_install_dir && \
     wget "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" && \
     tar -xvzf steamcmd_linux.tar.gz && \
     rm -f steamcmd_linux.tar.gz
 
 # Copy server configuration files
-COPY MyDediServer /root/.klei/DoNotStarveTogether/MyDediServer
+COPY MyDediServer $dst_save_dir/
 
 # Copy entrypoint script
 COPY entrypoint.sh /usr/local/bin/
