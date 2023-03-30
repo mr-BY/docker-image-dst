@@ -36,7 +36,7 @@ COPY dst.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/dst.sh
 
 # Expose server port
-EXPOSE 10998-11004/udp
+EXPOSE 10889 11000-11001 27018-27019 8768-8769
 
 # Start the server
 CMD ["dst.sh"]
