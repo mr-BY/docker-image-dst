@@ -31,13 +31,13 @@ RUN mkdir -p $steamcmd_install_dir && \
 # Copy server configuration files
 COPY MyDediServer $dst_save_dir
 
-# Copy start script
-COPY dst_start.sh /usr/local/bin/
-RUN chmod +x /usr/local/bin/dst_start.sh
+# Copy shell script
+COPY dst.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/dst.sh
 
 # Expose server port
 EXPOSE 10998-11004/udp
 
 # Start the server
-CMD ["dst_start.sh"]
+CMD ["dst.sh"]
 
