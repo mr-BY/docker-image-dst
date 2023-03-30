@@ -4,7 +4,7 @@ FROM ubuntu:latest
 # Set copyright information
 LABEL maintainer="Jianrry <i@jianrry.com>"
 LABEL version="1.0"
-LABEL releasedate="2023-03-29"
+LABEL releasedate="2023-03-30"
 LABEL website="https://blog.jianrry.com"
 
 # Set environment variable
