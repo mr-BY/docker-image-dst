@@ -25,18 +25,19 @@ RUN mkdir -p $steamcmd_install_dir && \
     cd $steamcmd_install_dir && \
     wget "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" && \
     tar -xvzf steamcmd_linux.tar.gz && \
-    rm -f steamcmd_linux.tar.gz
+    rm -f steamcmd_linux.tar.gz && \
+	./steamcmd.sh +force_install_dir $dst_install_dir +login anonymous +app_update 343050 validate +quit
 
 # Copy server configuration files
 COPY MyDediServer $dst_save_dir
 
-# Copy start script
-COPY dst_start.sh /usr/local/bin/
-RUN chmod +x /usr/local/bin/dst_start.sh
+# Copy shell script
+COPY dst.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/dst.sh
 
 # Expose server port
-EXPOSE 10998-11004/udp
+EXPOSE 10889 11000-11001 27018-27019 8768-8769
 
 # Start the server
-CMD ["dst_start.sh"]
+CMD ["dst.sh"]
 
