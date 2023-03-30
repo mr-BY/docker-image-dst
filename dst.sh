@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # update Don't Starve Together
-dst_start(){
+dst_update(){
 
 	cd $steamcmd_install_dir && \
 	./steamcmd.sh +force_install_dir $dst_install_dir +login anonymous +app_update 343050 validate +quit
