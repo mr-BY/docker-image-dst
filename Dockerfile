@@ -26,7 +26,7 @@ RUN mkdir -p $steamcmd_install_dir && \
     wget "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" && \
     tar -xvzf steamcmd_linux.tar.gz && \
     rm -f steamcmd_linux.tar.gz && \
-	./steamcmd.sh +force_install_dir $dst_install_dir +login anonymous +app_update 343050 validate +quit
+    ./steamcmd.sh +force_install_dir $dst_install_dir +login anonymous +app_update 343050 validate +quit
 
 # Copy server configuration files
 COPY MyDediServer $dst_save_dir
